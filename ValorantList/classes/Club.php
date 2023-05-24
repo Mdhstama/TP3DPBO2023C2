@@ -18,6 +18,25 @@ class Club extends DB
     {
     }
 
+    function addClub($data)
+    {
+        $name_team = $data['nama'];
+        $query = "INSERT INTO tb_team VALUES ('','$name_team')";
+        return $this->executeAffected($query);
+    }
+
+    function deleteClub($id)
+    {
+        $query = "DELETE FROM tb_team WHERE id_club=$id";
+        return $this->executeAffected($query);
+    }
+
+    function searchClub($keyword)
+    {
+        $query = "SELECT * FROM tb_team WHERE name_team LIKE '%$keyword%' ORDER BY id_club";
+        return $this->execute($query);
+    }
+
 }
 
 ?>

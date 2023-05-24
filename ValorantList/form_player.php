@@ -64,7 +64,7 @@ while ($tempClub = $club->getResult()) {
 
 $listRole = [];
 while ($tempRole = $role->getResult()) {
-    $dataRole .= '<option value="' . $tempRole['id_role'] . '">' . $tempRole['type_role'] . ' - ' . $tempRole['name_role'] . '</option>';
+    $dataRole .= '<option value="' . $tempRole['id_role'] . '">' . $tempRole['name_role'] . '</option>';
 }
 
 $player->close();

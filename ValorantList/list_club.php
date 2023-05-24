@@ -9,28 +9,49 @@ $club = new Club($DB_HOST, $DB_USERNAME, $DB_PASSWORD, $DB_NAME);
 $club->open();
 $club->getClub();
 
+// Search Data
+if (isset($_POST['btn-cari'])) {
+    $club->searchClub($_POST['cari']);
+} else {
+    $club->getClub();
+}
+
+//Add Data
+if (!isset($_GET['id'])) {
+    if (isset($_POST['submit_data'])) {
+        if ($club->addClub($_POST) > 0) {
+            echo "<script>
+                alert('Data berhasil ditambah!');
+                document.location.href = 'list_club.php';
+            </script>";
+        } else {
+            echo "<script>
+                alert('Data gagal ditambah!');
+                document.location.href = 'list_club.php';
+            </script>";
+        }
+    }
+
+    $btn = 'Add';
+    $title = 'Add';
+}
+
 $view = new Template('templates/skintabel.html');
 
+// View Data
 $mainTitle = 'Team';
 $header = '<tr>
 <th scope="row">No.</th>
-<th scope="row">Logo</th>
 <th scope="row">Name Club</th>
-<th scope="row">Region</th>
-<th scope="row">Location</th>
 <th scope="row">Action</th>
 </tr>';
 $data = null;
 $no = 1;
-$formLabel = 'divisi';
 
 while ($div = $club->getResult()) {
     $data .= '<tr>
     <th scope="row">' . $no . '</th>
-    <td><img src="assets/' . $div['logo_img'] . '" class="card-img-top" alt="' . $div['logo_img'] . '"></td>
     <td>' . $div['name_team'] . '</td>
-    <td>' . $div['region_team'] . '</td>
-    <td>' . $div['nation_team'] . '</td>
     <td style="font-size: 22px;">
         <a href="list_club.php?id=' . $div['id_club'] . '" title="Edit Data"><i class="bi bi-pencil-square text-warning"></i></a>&nbsp;<a href="list_club.php?hapus=' . $div['id_club'] . '" title="Delete Data"><i class="bi bi-trash-fill text-danger"></i></a>
         </td>
@@ -38,9 +59,31 @@ while ($div = $club->getResult()) {
     $no++;
 }
 
+// Delete Data
+if (isset($_GET['hapus'])) {
+    $id = $_GET['hapus'];
+    if ($club->deleteClub($id) > 0) {
+        echo "<script>
+        if (confirm('Apakah Anda ingin menghapus data?')) {
+            alert('Data berhasil dihapus!');
+            document.location.href = 'list_club.php';
+        } else {
+            // Jika pengguna membatalkan penghapusan, arahkan kembali ke halaman sebelumnya
+            history.back();
+        }
+    </script>";
+    } else {
+        echo "<script>
+        alert('Data gagal dihapus!');
+        document.location.href = 'list_club.php';
+    </script>";
+    }
+}
+
 $club->close();
 $view->replace('DATA_MAIN_TITLE', $mainTitle);
+$view->replace('DATA_TITLE', $title);
+$view->replace('DATA_BUTTON', $btn);
 $view->replace('DATA_TABEL_HEADER', $header);
-$view->replace('DATA_FORM_LABEL', $formLabel);
 $view->replace('DATA_TABEL', $data);
 $view->write();

@@ -94,10 +94,10 @@
                         <a class="nav-link text-light" aria-current="page" href="list_role.php">List Role</a>
                     </li>
                 </ul>
-                <form class="d-flex">
-                    <input class="form-control me-2" type="cari" placeholder="search player, role, team, management"
-                        aria-label="cari" size="40">
-                    <button class="btn btn-outline-light" type="submit">Cari</button>
+                <form class="d-flex" method="post" action="">
+                    <input class="form-control me-2" type="cari" name="cari" placeholder="Search DATA_MAIN_TITLE..." aria-label="cari"
+                        size="40" autocomplete="off">
+                    <button class="btn btn-success" type="submit" name="btn-cari">Cari</button>
                 </form>
             </div>
             </div>
@@ -108,33 +108,40 @@
             <div class="col">
                 <div class="card my-5 mx-5">
                     <div class="card-header text-center">
+                        <h3 class="my-0">DATA_TITLE DATA_MAIN_TITLE</h3>
+                    </div>  
+                    <div class="card-body">
+                        <form action="" method="post">
+                            <div class="form-group my-3">
+                                <label for="nama" class="form-label">Nama DATA_MAIN_TITLE</label>
+                                <input type="text" class="form-control bg-light" id="nama" name="nama" value="DATA_UPDATE"
+                                    placeholder="Masukkan DATA_MAIN_TITLE" required>
+                            </div>
+                            <div class="text-center my-3">
+                                <button type="submit" class="btn btn-success text-white" name="submit_data" id="submit">
+                                    DATA_BUTTON DATA_MAIN_TITLE</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="card my-5 mx-5">
+                    <div class="card-header text-center">
                         <h3 class="my-0">List DATA_MAIN_TITLE</h3>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-hover table-stripped table-bordered text-center">
                                 <thead class="table-info">
-                                    <!-- <tr>
-                                        <th scope="row">No.</th>
-                                        <th scope="row">Nama Divisi</th>
-                                        <th scope="row">Aksi</th>
-                                    </tr> -->
                                     DATA_TABEL_HEADER
                                 </thead>
                                 <tbody>
-                                        <!-- <tr>
-                                            <th scope="row">No</th>
-                                            <td>Nama Divisi</td>
-                                            <td style="font-size: 22px;">
-                                                <a href="divisi.php?id=" title="Edit Data"><i class="bi bi-pencil-square text-warning"></i></a>&nbsp;<a href="divisi.php?hapus=" title="Delete Data"><i class="bi bi-trash-fill text-danger"></i></a>
-                                            </td>
-                                        </tr> -->
-                                        DATA_TABEL
+                                    DATA_TABEL
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>

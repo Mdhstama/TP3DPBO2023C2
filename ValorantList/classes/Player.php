@@ -41,7 +41,7 @@ class Player extends DB
         $path = 'assets/' . $img;
         $isMoved = move_uploaded_file($container, $path);
         if (!$isMoved) {
-            $img = 'photo.jpg';
+            $img = 'photo.png';
         }
 
         $query = "INSERT INTO tb_human VALUES (NULL, '$real_name', '$in_game_nickname', '$nationality', '$img', $id_club, $id_role)";
@@ -60,6 +60,12 @@ class Player extends DB
         $query = "SELECT * FROM tb_human JOIN tb_team ON tb_human.id_club=tb_team.id_club JOIN tb_role ON tb_human.id_role=tb_role.id_role WHERE tb_human.in_game_nickname LIKE '%$keyword%' ORDER BY tb_human.id_player ";
 
         return $this->execute($query);
+    }
+
+    function deletePlayer($id)
+    {
+        $query = "DELETE FROM tb_human WHERE id_player=$id";
+        return $this->executeAffected($query);
     }
 }
 
