@@ -13,6 +13,21 @@ Berorientasi Objek untuk keberkahanNya maka saya tidak melakukan kecurangan sepe
 - 1 tabel pada database ditampilkan dalam bentuk bukan tabel, 2 tabel sisanya ditampilkan dalam bentuk tabel (seperti contoh saat praktikum)
 - Menggunakan template/skin tabel yang sama untuk menampilkan tabel
 
-**To Do**
-- Update player, role, club
-- Sort data
+**Database**
+
+![image](https://github.com/Mdhstama/TP3DPBO2023C2/assets/99590350/3ccdfc0b-24be-49a6-8218-f49403bbad0d)
+
+**Bukti**
+
+- Add, Edit, Delete , Search Player
+
+https://github.com/Mdhstama/TP3DPBO2023C2/assets/99590350/d9556216-6884-44ed-a6ad-c94fcac2f9be
+
+- Add, Edit, Delete, Search Club
+
+https://github.com/Mdhstama/TP3DPBO2023C2/assets/99590350/167ffc3b-5550-42f9-95d2-8869a360aae6
+
+- Add, Edit, Delete, Search Role
+
+https://github.com/Mdhstama/TP3DPBO2023C2/assets/99590350/e30f87f7-b90e-4d0f-ab2f-cefc8504e7a4
+
