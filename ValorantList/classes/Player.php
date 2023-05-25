@@ -51,8 +51,29 @@ class Player extends DB
 
     function updatePlayer($id, $data, $file)
     {
+        $real_name = $data['real_name'];
+        $in_game_nickname = $data['in_game_nick'];
+        $nationality = $data['nationality'];
+        $id_club = $data['club'];
+        $id_role = $data['role'];
 
+        $img = $file['img']['name'];
+        $container = $file['img']['tmp_name'];
+        $path = 'assets/' . $img;
+        $isMoved = move_uploaded_file($container, $path);
+        if (!$isMoved) {
+            $img = 'photo.png';
+        }
 
+        $query = "UPDATE tb_human SET 
+            real_name = '$real_name', 
+            in_game_nickname = '$in_game_nickname', 
+            nationality = '$nationality', 
+            id_club = $id_club, 
+            id_role = $id_role,
+            img = '$img'
+        WHERE id_player = $id";
+        return $this->executeAffected($query);
     }
 
     function searchPlayer($keyword)

@@ -59,6 +59,42 @@ while ($div = $club->getResult()) {
     $no++;
 }
 
+//Update Data
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+    if ($id > 0) {
+        if (isset($_POST['submit_data'])) {
+            if (!empty($_POST['nama'])) {
+                if ($club->updateClub($id, $_POST) > 0) {
+                    echo "<script>
+                    alert('Data berhasil diupdate!');
+                    document.location.href = 'list_club.php';
+                </script>";
+                } else {
+                    echo "<script>
+                    alert('Data gagal diupdate!');
+                    document.location.href = 'list_club.php';
+                </script>";
+                }
+            } else {
+                echo "<script>
+                    alert('Data tidak boleh kosong!');
+                    document.location.href = 'list_club.php';
+                </script>";
+            }
+        }
+
+        $club->getClubById($id);
+        $row = $club->getResult();
+
+        $dataUpdate2 = $row['name_team'];
+        $btn = 'Update';
+        $title = 'Edit';
+
+        $view->replace('DATA_UPDATE', $dataUpdate2);
+    }
+}
+
 // Delete Data
 if (isset($_GET['hapus'])) {
     $id = $_GET['hapus'];

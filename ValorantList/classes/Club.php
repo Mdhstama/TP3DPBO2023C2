@@ -14,10 +14,6 @@ class Club extends DB
         return $this->execute($query);
     }
 
-    function updateClub($id, $data)
-    {
-    }
-
     function addClub($data)
     {
         $name_team = $data['nama'];
@@ -35,6 +31,13 @@ class Club extends DB
     {
         $query = "SELECT * FROM tb_team WHERE name_team LIKE '%$keyword%' ORDER BY id_club";
         return $this->execute($query);
+    }
+
+    function updateClub($id, $data)
+    {
+        $name_team = $data['nama'];
+        $query = "UPDATE tb_team SET name_team = '$name_team' WHERE id_club=$id";
+        return $this->executeAffected($query);
     }
 
 }

@@ -60,6 +60,42 @@ while ($div = $role->getResult()) {
     $no++;
 }
 
+//Update Data
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+    if ($id > 0) {
+        if (isset($_POST['submit_data'])) {
+            if (!empty($_POST['nama'])) {
+                if ($role->updateRole($id, $_POST) > 0) {
+                    echo "<script>
+                    alert('Data berhasil diupdate!');
+                    document.location.href = 'list_role.php';
+                </script>";
+                } else {
+                    echo "<script>
+                    alert('Data gagal diupdate!');
+                    document.location.href = 'list_role.php';
+                </script>";
+                }
+            } else {
+                echo "<script>
+                    alert('Data tidak boleh kosong!');
+                    document.location.href = 'list_role.php';
+                </script>";
+            }
+        }
+
+        $role->getRoleById($id);
+        $row = $role->getResult();
+
+        $dataUpdate = $row['name_role'];
+        $btn = 'Update';
+        $title = 'Edit';
+
+        $view->replace('DATA_UPDATE', $dataUpdate);
+    }
+}
+
 // Delete Data
 if (isset($_GET['hapus'])) {
     $id = $_GET['hapus'];

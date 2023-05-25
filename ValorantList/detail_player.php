@@ -73,7 +73,7 @@ if (isset($_GET['id'])) {
                                     <td>' . $row['name_role'] . '</td>
                                 </tr>
                                 <tr>
-                                    <td>role</td>
+                                    <td>Club</td>
                                     <td>:</td>
                                     <td>' . $row['name_team'] . '</td>
                                 </tr>
@@ -83,7 +83,7 @@ if (isset($_GET['id'])) {
                 </div>
             </div>
             <div class="card-footer text-end">
-                <a href="#"><button type="button" class="btn btn-success text-white">Update Data</button></a>
+                <a href="form_player.php?id=' . $row['id_player'] . '"><button type="button" class="btn btn-success text-white">Update Data</button></a>
                 <a href="detail_player.php?hapus=' . $row['id_player'] . '"><button type="button" class="btn btn-danger">Delete Data</button></a>
             </div>';
 }
