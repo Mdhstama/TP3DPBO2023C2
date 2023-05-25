@@ -13,6 +13,10 @@ Berorientasi Objek untuk keberkahanNya maka saya tidak melakukan kecurangan sepe
 - 1 tabel pada database ditampilkan dalam bentuk bukan tabel, 2 tabel sisanya ditampilkan dalam bentuk tabel (seperti contoh saat praktikum)
 - Menggunakan template/skin tabel yang sama untuk menampilkan tabel
 
+** Screenshot **
+
+(tidak perlu screenshot, video sudah menjelaskan semua isi dari websitenya)
+
 **Database**
 
 ![image](https://github.com/Mdhstama/TP3DPBO2023C2/assets/99590350/3ccdfc0b-24be-49a6-8218-f49403bbad0d)
